@@ -1,12 +1,12 @@
-import express, { type Request, type Response } from "express";
+import express, { type Request, type Response } from "express"
 
-const app = express();
-const PORT = process.env.PORT || 8000;
+const app = express()
+const PORT = process.env.PORT || 8000
 
 app.get("/", (req: Request, res: Response) => {
-  res.send("Hello, Booking System Server");
-});
+  res.send("Hello, Booking System Server")
+})
 
 app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
-});
+  console.log(`Server is running on http://localhost:${PORT}`)
+})
