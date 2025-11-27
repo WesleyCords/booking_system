@@ -3,7 +3,8 @@ import BookingController from "./controllers/BookingController.js"
 
 const router = Router()
 
-router.post("/bookings", BookingController.create)
-router.get("/teste", BookingController.teste)
+router.post("/booking", BookingController.create)
+router.get("/availability", BookingController.getAvailability)
+router.delete("/booking/:id", BookingController.deleteBooking)
 
 export default router
