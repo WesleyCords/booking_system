@@ -4,3 +4,7 @@ interface Service {
   price: number
   description: string
 }
+
+interface UiState {
+  isListVisible: boolean
+}

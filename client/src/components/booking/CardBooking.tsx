@@ -1,11 +1,11 @@
-import { Button } from '../components/ui/button'
+import { Button } from '../ui/button'
 import {
   Card,
   CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
-} from '../components/ui/card'
+} from '../ui/card'
 
 interface CardBookingProps {
   id: number
@@ -22,7 +22,7 @@ const CardService = ({
   onBook,
 }: CardBookingProps) => {
   return (
-    <Card className="border-muted hover:border-primary/50 flex h-full w-full flex-col justify-between transition-all duration-300 hover:shadow-lg">
+    <Card className="border-muted hover:border-primary/50 flex h-full w-full flex-col justify-between transition-all duration-300 hover:shadow-md">
       <CardHeader>
         <CardTitle className="text-[1.5rem] font-semibold">{title}</CardTitle>
         <CardDescription className="mb-6 text-[1rem]">
