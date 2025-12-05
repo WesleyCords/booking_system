@@ -1,5 +1,4 @@
 import CardService from '@/components/booking/CardBooking'
-import { useState } from 'react'
 import StickyBar from '../booking/StickyBar'
 
 const ListServices = () => {
@@ -70,20 +69,14 @@ const ListServices = () => {
         'Experiência premium com bebidas, corte, barba e cuidados com a pele.',
     },
   ]
-  const [serviceSelected, setServiceSelected] = useState<Service | null>(null)
 
-  const consoleId = (id: number) => {
-    setServiceSelected(
-      servicesMock.find((service) => service.id === id) || null,
-    )
-  }
   return (
-    <div className="container mx-auto h-screen min-h-screen w-full px-4 pt-10">
-      <div className="grid grid-cols-1 gap-4 pb-32 md:grid-cols-2 lg:grid-cols-3">
+    <div className="mx-auto w-full px-4 py-10">
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
         {servicesMock.map((service) => (
           <CardService
             key={service.id}
-            onBook={() => consoleId(service.id)}
+            service={service}
             id={service.id}
             title={service.title}
             price={service.price}
@@ -91,7 +84,7 @@ const ListServices = () => {
           />
         ))}
       </div>
-      {serviceSelected && <StickyBar service={serviceSelected} />}
+      <StickyBar />
     </div>
   )
 }

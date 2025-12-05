@@ -1,0 +1,38 @@
+import { createSlice } from '@reduxjs/toolkit'
+
+const initialState: BookState = {
+  book: {
+    id: 0,
+    title: '',
+    description: '',
+    price: 0,
+  },
+  service: {
+    date: '',
+    time: '',
+    id: 0,
+    name: '',
+    phone: '',
+    email: '',
+  },
+}
+
+const bookSlice = createSlice({
+  name: 'ui',
+  initialState,
+  reducers: {
+    addBook: (state, action) => {
+      state.book = action.payload
+    },
+    addTime: (state, action) => {
+      state.service.time = action.payload
+    },
+    addDetails: (state, action) => {
+      const time = state.service.time
+      state.service = { ...action.payload, time }
+    },
+  },
+})
+
+export const { addBook, addTime, addDetails } = bookSlice.actions
+export default bookSlice.reducer

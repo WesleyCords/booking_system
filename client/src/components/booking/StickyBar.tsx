@@ -1,12 +1,12 @@
 import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
+import { useAppDispatch, useAppSelector } from '@/store/hooks'
+import { toggleDate } from '@/store/modules/uiSlice'
 
-interface StickyBarProps {
-  service: Service | null
-}
-
-const StickyBar = ({ service }: StickyBarProps) => {
-  if (service) {
+const StickyBar = () => {
+  const dispatch = useAppDispatch()
+  const service = useAppSelector((state) => state.booking.book)
+  if (service.id !== 0) {
     return (
       <div
         className={cn(
@@ -29,7 +29,10 @@ const StickyBar = ({ service }: StickyBarProps) => {
               currency: 'BRL',
             }).format(service.price)}
           </span>
-          <Button className="bg-primary text-primary-foreground cursor-pointer font-black transition-colors">
+          <Button
+            onClick={() => dispatch(toggleDate())}
+            className="bg-primary text-primary-foreground cursor-pointer font-black transition-colors"
+          >
             Confirmar
           </Button>
         </div>

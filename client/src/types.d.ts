@@ -5,6 +5,21 @@ interface Service {
   description: string
 }
 
+interface ServiceDetails {
+  date: string
+  time: string
+  id: number
+  name: string
+  phone: string
+  email: string
+}
+interface BookState {
+  book: Service
+  service: ServiceDetails
+}
+
 interface UiState {
-  isListVisible: boolean
+  modalDate: boolean
+  modalTime: boolean
+  calenderPickedOpen: boolean
 }

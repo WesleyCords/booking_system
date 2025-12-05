@@ -1,18 +1,26 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState: UiState = {
-  isListVisible: true,
+  modalDate: true,
+  modalTime: false,
+  calenderPickedOpen: false,
 }
 
 const uiSlice = createSlice({
   name: 'ui',
   initialState,
   reducers: {
-    toggleListVisibility: (state) => {
-      state.isListVisible = !state.isListVisible
+    toggleTime: (state) => {
+      state.modalTime = !state.modalTime
+    },
+    toggleDate: (state) => {
+      state.modalDate = !state.modalDate
+    },
+    toggleCalenderPicked: (state) => {
+      state.calenderPickedOpen = !state.calenderPickedOpen
     },
   },
 })
 
-export const { toggleListVisibility } = uiSlice.actions
+export const { toggleTime, toggleDate, toggleCalenderPicked } = uiSlice.actions
 export default uiSlice.reducer

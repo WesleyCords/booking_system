@@ -1,3 +1,4 @@
+import { useAppDispatch } from '@/store/hooks'
 import { Button } from '../ui/button'
 import {
   Card,
@@ -6,21 +7,19 @@ import {
   CardHeader,
   CardTitle,
 } from '../ui/card'
+import { addBook } from '@/store/modules/bookSlice'
 
-interface CardBookingProps {
-  id: number
-  title: string
-  price: number
-  description: string
-  onBook?: () => void
+interface CardBookingProps extends Service {
+  service: Service
 }
 
 const CardService = ({
   title,
   price,
   description,
-  onBook,
+  service,
 }: CardBookingProps) => {
+  const dispatch = useAppDispatch()
   return (
     <Card className="border-muted hover:border-primary/50 flex h-full w-full flex-col justify-between transition-all duration-300 hover:shadow-md">
       <CardHeader>
@@ -36,7 +35,10 @@ const CardService = ({
             currency: 'BRL',
           }).format(price)}
         </span>
-        <Button onClick={onBook} className="cursor-pointer font-bold">
+        <Button
+          onClick={() => dispatch(addBook(service))}
+          className="cursor-pointer font-bold"
+        >
           Agende Agora
         </Button>
       </CardContent>

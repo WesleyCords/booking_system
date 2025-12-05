@@ -49,11 +49,31 @@
 @utility container {
   margin-inline: auto;
   padding-inline: 1rem;
-  max-width: 1200px;
+  max-width: 90vw;
 }
 
-@utility visible {
-  display: block;
+@utility overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 50;
+}
+
+@utility modais {
+  position: fixed;
+  min-width: 600px;
+  min-height: 150px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--color-card);
+  color: var(--color-card-foreground);
+  padding: 1.5rem;
+  border-radius: var(--radius-md);
+  box-shadow:
+    0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  z-index: 60;
 }
 
 @layer base {
