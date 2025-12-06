@@ -1,4 +1,5 @@
 import { Button } from '@/components/ui/button'
+import { cn } from '@/lib/utils'
 import { Link } from 'react-router-dom'
 
 interface ButtonProps {
@@ -6,9 +7,10 @@ interface ButtonProps {
   children: React.ReactNode
   toLink?: string
   onBook?: () => void
+  ligth?: boolean
 }
 
-const ButtonMain = ({ type, children, toLink, onBook }: ButtonProps) => {
+const ButtonMain = ({ type, children, toLink, onBook, ligth }: ButtonProps) => {
   if (type === 'link' && toLink) {
     return (
       <Link to={toLink}>
@@ -19,7 +21,16 @@ const ButtonMain = ({ type, children, toLink, onBook }: ButtonProps) => {
     )
   }
   return (
-    <Button className="cursor-pointer font-black" onClick={onBook}>
+    <Button
+      className={cn(
+        'cursor-pointer font-black',
+        'hover:bg-primary/80 hover:border-primary-foreground',
+        ligth
+          ? 'text-accent-foreground border-accent-foreground hover:bg-primary/10 hover:border-accent-foreground border-2 bg-transparent'
+          : '',
+      )}
+      onClick={onBook}
+    >
       {children}
     </Button>
   )

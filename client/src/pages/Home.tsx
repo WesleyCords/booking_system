@@ -1,6 +1,7 @@
 import Footer from '@/layouts/Footer'
 import Header from '@/layouts/Header'
 import ModalDate from '@/layouts/ModalDate'
+import ModalTime from '@/layouts/ModalTime'
 import { Outlet } from 'react-router-dom'
 
 const MainLayout = () => {
@@ -12,6 +13,7 @@ const MainLayout = () => {
       </main>
       <Footer />
       <ModalDate />
+      <ModalTime />
     </div>
   )
 }

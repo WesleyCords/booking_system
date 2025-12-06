@@ -1,10 +1,11 @@
 import { X } from 'lucide-react'
 import { createPortal } from 'react-dom'
 import { useAppDispatch, useAppSelector } from '../store/hooks'
-import { toggleDate } from '@/store/modules/uiSlice'
+import { toggleDate, toggleTime } from '@/store/modules/uiSlice'
 import Fields from '@/components/layout/Fields'
 import ButtonMain from '@/components/booking/Button'
 import { useState } from 'react'
+import { addDetails } from '@/store/modules/bookSlice'
 
 const ModalDate = () => {
   const dispatch = useAppDispatch()
@@ -24,7 +25,16 @@ const ModalDate = () => {
   }
 
   const handleSubmit = () => {
-    console.log('Dados preenchidos:', details)
+    dispatch(addDetails(details))
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const { phone, ...fieldsRequerid } = details
+    const filled = Object.values(fieldsRequerid).every((value) => value !== '')
+    if (filled) {
+      dispatch(toggleDate())
+      dispatch(toggleTime())
+    } else {
+      alert('Por favor, preencha todos os campos.')
+    }
   }
 
   if (!modalDate) return null

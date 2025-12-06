@@ -69,6 +69,7 @@
   background-color: var(--color-card);
   color: var(--color-card-foreground);
   padding: 1.5rem;
+  padding-bottom: 1rem;
   border-radius: var(--radius-md);
   box-shadow:
     0 10px 15px -3px rgba(0, 0, 0, 0.1),

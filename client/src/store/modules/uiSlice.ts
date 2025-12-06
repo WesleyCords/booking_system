@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState: UiState = {
-  modalDate: true,
+  modalDate: false,
   modalTime: false,
   calenderPickedOpen: false,
 }
