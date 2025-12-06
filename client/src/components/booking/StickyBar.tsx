@@ -6,6 +6,7 @@ import { toggleDate } from '@/store/modules/uiSlice'
 const StickyBar = () => {
   const dispatch = useAppDispatch()
   const service = useAppSelector((state) => state.booking.book)
+
   if (service.id !== 0) {
     return (
       <div

@@ -19,7 +19,7 @@ const ModalDate = () => {
 
   const handleBook = () => {
     dispatch(toggleTime())
-    console.log(details)
+    console.log('Agendado com sucesso:', details)
   }
 
   if (!openModal) return null
