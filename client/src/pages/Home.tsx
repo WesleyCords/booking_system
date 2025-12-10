@@ -3,6 +3,7 @@ import Header from '@/layouts/Header'
 import ModalDate from '@/layouts/ModalDate'
 import ModalTime from '@/layouts/ModalTime'
 import { Outlet } from 'react-router-dom'
+import { Toaster } from 'sonner'
 
 const MainLayout = () => {
   return (
@@ -14,6 +15,7 @@ const MainLayout = () => {
       <Footer />
       <ModalDate />
       <ModalTime />
+      <Toaster position="top-right" richColors closeButton />
     </div>
   )
 }

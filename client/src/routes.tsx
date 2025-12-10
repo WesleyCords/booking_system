@@ -1,14 +1,14 @@
 import { createBrowserRouter } from 'react-router-dom'
-import Wellcome from './pages/Wellcome'
+import OnBoarding from './pages/OnBoarding'
 import Home from './pages/Home'
 import ServicesLayout from './layouts/ServicesLayout'
 
 export const router = createBrowserRouter([
-  { path: '/', element: <Wellcome /> },
+  { path: '/', element: <OnBoarding /> },
   {
     path: '/home',
     element: <Home />,
-    children: [{ path: '/home', element: <ServicesLayout /> }],
+    children: [{ index: true, element: <ServicesLayout /> }],
   },
   {
     path: '*',

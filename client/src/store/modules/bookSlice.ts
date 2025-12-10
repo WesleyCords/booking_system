@@ -5,7 +5,10 @@ const initialState: BookState = {
     id: 0,
     title: '',
     description: '',
-    price: 0,
+    price: '',
+    duration: 0,
+    createdAt: '',
+    updatedAt: '',
   },
   service: {
     date: '',
@@ -31,8 +34,12 @@ const bookSlice = createSlice({
       const time = state.service.time
       state.service = { ...action.payload, time }
     },
+    setClientEmail: (state, action) => {
+      state.service.email = action.payload
+    },
   },
 })
 
-export const { addBook, addTime, addDetails } = bookSlice.actions
+export const { addBook, addTime, addDetails, setClientEmail } =
+  bookSlice.actions
 export default bookSlice.reducer

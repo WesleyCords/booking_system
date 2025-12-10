@@ -9,23 +9,20 @@ import {
 } from '../ui/card'
 import { addBook } from '@/store/modules/bookSlice'
 
-interface CardBookingProps extends Service {
+interface CardBookingProps {
   service: Service
 }
 
-const CardService = ({
-  title,
-  price,
-  description,
-  service,
-}: CardBookingProps) => {
+const CardService = ({ service }: CardBookingProps) => {
   const dispatch = useAppDispatch()
   return (
     <Card className="border-muted hover:border-primary/50 flex h-full w-full flex-col justify-between transition-all duration-300 hover:shadow-md">
       <CardHeader>
-        <CardTitle className="text-[1.5rem] font-semibold">{title}</CardTitle>
+        <CardTitle className="text-[1.5rem] font-semibold">
+          {service.title}
+        </CardTitle>
         <CardDescription className="mb-6 text-[1rem]">
-          {description}
+          {service.description}
         </CardDescription>
       </CardHeader>
       <CardContent className="flex items-center justify-between">
@@ -33,7 +30,7 @@ const CardService = ({
           {new Intl.NumberFormat('pt-BR', {
             style: 'currency',
             currency: 'BRL',
-          }).format(price)}
+          }).format(Number(service.price))}
         </span>
         <Button
           onClick={() => dispatch(addBook(service))}
